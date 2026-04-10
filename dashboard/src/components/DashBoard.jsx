@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-
+import axios from "axios";
 import Apps from "./Apps";
 import Funds from "./Funds";
 import Holdings from "./Holdings";
@@ -8,9 +8,20 @@ import Positions from "./Positions";
 import Summary from "./Summary";
 import WatchList from "./WatchList";
 import NotFound from "./NotFound";
+import { useEffect } from "react";
 import { GeneralContextProvider } from "../config/generalContext";
 
 const Dashboard = () => {
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get("token");
+
+    if (token) {
+      localStorage.setItem("token", token);
+    }
+  }, []);
+
   return (
     <div className="dashboard-container">
       <GeneralContextProvider>

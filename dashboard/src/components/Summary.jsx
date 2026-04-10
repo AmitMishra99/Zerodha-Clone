@@ -1,10 +1,33 @@
-import React from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const Summary = () => {
+  const [ data , setData] = useState({});
+  const fetchUser = async () => {
+    try {
+      const token = localStorage.getItem("token");
+
+      const res = await axios.get("http://localhost:3000/me", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      
+      console.log("USER:", res.data.user.firstName);
+      setData(res.data.user.firstName);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  
+  useEffect(() => {
+    fetchUser();
+  }, []);
+  
   return (
     <div className="summary">
       <div className="username">
-        <h6>Hi, User!</h6>
+        <h6>{`Hi , ${data}`}</h6>
         <hr className="divider" />
       </div>
 
