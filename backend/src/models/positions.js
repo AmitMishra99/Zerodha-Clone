@@ -10,4 +10,5 @@ const positionsSchema = new mongoose.Schema({
   day: String,
 });
 
-module.exports = mongoose.model("Positions", positionsSchema);
+const Positions = mongoose.model("Positions", positionsSchema);
+module.exports = { Positions };
