@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Hero = () => {
   return (
     <div className="container mb-5">
@@ -12,9 +14,11 @@ const Hero = () => {
             ETFs, bonds, and more.
           </p>
 
-          <button className="btn btn-primary btn-lg mt-4 px-5">
-            Sign up for free
-          </button>
+          <Link to="/signup">
+            <button className="btn btn-primary btn-lg mt-4 px-5">
+              Sign up for free
+            </button>
+          </Link>
         </div>
       </div>
     </div>

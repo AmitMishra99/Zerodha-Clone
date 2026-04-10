@@ -37,12 +37,17 @@ const Auth = () => {
         : formData;
 
       const res = await axios.post(url, payload);
+      console.log(res.data.token);
 
       if (res.data?.token) {
         localStorage.setItem("token", res.data.token);
       }
 
-      window.location.href = "http://localhost:5174";
+      if (isLogin) {
+        window.location.href = `http://localhost:5174?token=${res.data.token}`;
+      } else {
+        setIsLogin(true);
+      }
     } catch (err) {
       const message = err.response?.data?.msg || "Something went wrong";
 
