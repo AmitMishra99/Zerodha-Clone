@@ -1,0 +1,2 @@
+Zerodha Clone (MERN Project)
+This project is a clone of the Zerodha trading platform, built using the MERN stack. It focuses on frontend development while integrating backend APIs for user authentication and data handling. The application follows a multi-project structure with separate modules for the main app and dashboard, providing a practical understanding of how real-world full-stack applications are designed and connected.
