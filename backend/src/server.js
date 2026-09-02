@@ -1,5 +1,5 @@
 require("dotenv").config();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 const express = require("express");
 const app = express();
@@ -7,6 +7,8 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const connectDB = require("./config/database");
+const dns = require("dns");
+dns.setServers([process.env.DNS_SERVER_1, process.env.DNS_SERVER_2]);
 
 app.use(
   cors({
